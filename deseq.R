@@ -1,6 +1,6 @@
 ## R code -  Differential gene analysis using DESeq2 and gene ontology analysis -
 
-## Some codes are adapted from Thyme et al., ---
+## Some parts of the code were adapted from Thyme et al., bioRxiv preprint, 2024
 
 library(dplyr)
 library("DESeq2")

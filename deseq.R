@@ -36,7 +36,7 @@ dev.off()
 
 
 
-## Different contrasts - 
+## Different contrasts ( DM - Double mutant, SM_5a and SM_5b - Single mutatnt 5a and 5b, respectively and WT - Wild type) - 
 R_DM_WT <-results(dds,contrast=c("condition","DM","WT"))
 R_SM_5a_WT <-results(dds,contrast=c("condition","SM_5a","WT"))
 R_SM_5b_WT <-results(dds,contrast=c("condition","SM_5b","WT"))
@@ -49,6 +49,7 @@ R_SM_5b_WT<-R_SM_5b_WT[order(R_SM_5b_WT$pvalue),]
 R_SM_5a_DM<-R_SM_5a_DM[order(R_SM_5a_DM$pvalue),]
 R_SM_5b_DM<-R_SM_5b_DM[order(R_SM_5b_DM$pvalue),]
 
+## DE function to parse DE analysis results as a dataframe and mapping gene names -
 
 DE <- function(res)
 {
@@ -189,7 +190,7 @@ comp2 <- enrich(SM_5a_WT)
 comp3 <- enrich(SM_5b_WT)
 
 
-## after calling function - create plots
+## after calling enrich function, create ontology plots, as an example, here it is for contrast 1 i.e. DM vs WT
 
 color<-ifelse(comp1$Pathway_all$NegLogPAdj<0,"blue","yellow")
 jpeg(file=paste0("comp1","_pathways.jpeg"))

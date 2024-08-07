@@ -36,7 +36,7 @@ dataframe_res <-inner_join(dataframe_counts,gene_name,by="LLgeneID")
 	
 clean <-dataframe_res[dataframe_res$LLgeneSymbol %in% genes_selected$LLgeneSymbol, ]
 
-## merge counts and genes selected to add category column
+## add category column to final dataframe
 clean<-inner_join(clean, genes_selected, by="LLgeneSymbol") 
 clean <-clean %>% arrange(Category)
 

@@ -1,4 +1,4 @@
- 
+Customised heatmap from normalised log counts of DeSeq2 
 
 library(dplyr)
 library("DESeq2")
@@ -6,26 +6,13 @@ library("ggplot2")
 library("EnhancedVolcano")
 library ("ComplexHeatmap")
 
-sampleTable <- read.csv("samples.csv")
-
-treatments=c("WT", "DM", "SM_5a", "SM_5b")
-
-ddsHTSeq <-DESeqDataSetFromHTSeqCount(sampleTable=sampleTable,directory="counts/",
-                                       design=~condition)
-									   
-colData(ddsHTSeq)$condition <- factor(colData(ddsHTSeq)$condition,levels=treatments)
-
-dds <-DESeq(ddsHTSeq)
-
-# filtering might need to change depending on sample number
-keep <- rowSums(counts(dds) == 0) < 4
-dds <- dds[keep,]
 
 
 ### select genes of interest and map with normalised counts
 genes_selected <-read.table("down_priortised_genes_WT_DM5a.txt", header=T, sep="\t")
 
-#countsdata <-counts(dds,normalized=TRUE)
+### get normalised counts from The DESeqDataSet (dds) created using script deseq.R
+
 countsdata <-log2(counts(dds, normalized=TRUE) + 1)
 gene_name <-read.csv("llgeneid_genename.csv")
 	 dataframe_counts <-as.data.frame(countsdata)

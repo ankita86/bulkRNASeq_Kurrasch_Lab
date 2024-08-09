@@ -1,4 +1,4 @@
-Customised heatmap from normalised log counts of DeSeq2 
+#Customised heatmap for priotised gene set using log normalised log counts of DeSeq2 
 
 library(dplyr)
 library("DESeq2")

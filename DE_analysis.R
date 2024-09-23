@@ -72,6 +72,8 @@ SM_5a_DM<-DE(R_SM_5a_DM)
 SM_5b_DM<-DE(R_SM_5b_DM)
 
 
+
+
 #### Customised heatmap for priotised gene set using log normalised log counts of DeSeq2 #######
  
 ### select genes of interest and map with normalised counts
